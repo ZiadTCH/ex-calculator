@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Grundlegende Stil-Einstellungen */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+  }
+  
+  /* Stil des Taschenrechners */
+  .calculator {
+    width: 250px;
+    border-radius: 20px;
+    background-color: #1c1c1c;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Anzeigebereich */
+  .viewer {
+    color: white;
+    background-color: #000;
+    font-size: 32px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Stil der Tasten */
+  button {
+    font-size: 22px;
+    font-family: "Roboto", sans-serif;
+    line-height: 60px;
+    height: 60px;
+    background-color: #333;
+    border: none;
+    border-radius: 50%;
+    margin: 5px;
+    color: white;
+    flex: 1;
+  }
+  
+  /* Stil der Operator-Tasten */
+  button.ops {
+    background-color: #ff9500;
+  }
+  
+  /* Stil der Clear-Taste */
+  button#clear {
+    background-color: #d4d4d2;
+    color: black;
+    border-radius: 50%;
+    flex: 1;
+  }
+  
+  /* Stil der Equals-Taste */
+  button#equals {
+    background-color: #ff9500;
+  }
+  
+  /* Container für die Tasten */
+  .calculator > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  /* Spezielle Anpassungen für die 0, Punkt und Gleich-Taste */
+  button.num[data-num="0"], button.num[data-num="."], button#equals {
+    border-radius: 50%;
+  }
+  
+  /* Erste Zeile speziell für Clear-Taste und Viewer */
+  .calculator > div:first-child {
+    align-items: center;
+  }
+  
+  button#clear {
+    margin-right: 10px;
+  }
+  
+  /* Anpassung für die Breite der Viewer */
+  .viewer {
+    flex: 4;
+    margin-right: -5px; /* Negative margin um den Rand der Clear-Taste auszugleichen */
+  }
+  
+  /* Flex-Container für die Zahlen und Operatoren */
+  .row {
+    display: flex;
+  }
+  
+  /* Spezielle Anpassung für die unterste Reihe */
+  .row.bottom-row button {
+    flex: 2;
+  }
+  
+  /* Anpassung für die 0 und Punkt-Taste */
+  button.num[data-num="0"] {
+    flex: 4;
+    border-radius: 50px;
+  }
+  
+  button.num[data-num="."] {
+    flex: 2;
+  }
+  
+  /* Warnung und Reset Button */
+  .warning, #reset {
+    display: none;
+  }
+  
+  /* Fügen Sie dies hinzu, wenn der Taschenrechner 'kaputt' ist */
+  .calculator.broken .warning, .calculator.broken #reset {
+    display: block;
+    color: white;
+    text-align: center;
+  }
